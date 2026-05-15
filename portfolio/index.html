@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Divya Dharshini | Portfolio</title>
+
+  <!-- GOOGLE FONT -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- ICONS -->
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Inter', sans-serif;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#020617;
+      color:white;
+      overflow-x:hidden;
+      transition:0.4s;
+    }
+
+    /* LIGHT MODE */
+
+    body.light{
+      background:#f8fafc;
+      color:#0f172a;
+    }
+
+    body.light nav{
+      background:rgba(255,255,255,0.7);
+      border-bottom:1px solid rgba(0,0,0,0.08);
+    }
+
+    body.light .nav-links a{
+      color:#0f172a;
+    }
+
+    body.light .hero-text p{
+      color:#475569;
+    }
+
+    body.light .social-icons a{
+      background:white;
+      color:#0f172a;
+      border:1px solid rgba(0,0,0,0.08);
+    }
+
+    body.light .secondary-btn{
+      background:white;
+      color:#0f172a;
+      border:1px solid rgba(0,0,0,0.08);
+    }
+
+    /* BACKGROUND */
+
+    .background{
+      position:fixed;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      z-index:-1;
+      overflow:hidden;
+
+      background:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+      background-size:50px 50px;
+    }
+
+    .blur1{
+      position:absolute;
+      width:500px;
+      height:500px;
+      background:#0ea5e9;
+      opacity:0.15;
+      border-radius:50%;
+      filter:blur(120px);
+
+      top:-150px;
+      left:-100px;
+
+      animation:move1 10s infinite alternate;
+    }
+
+    .blur2{
+      position:absolute;
+      width:450px;
+      height:450px;
+      background:#2563eb;
+      opacity:0.12;
+      border-radius:50%;
+      filter:blur(120px);
+
+      bottom:-120px;
+      right:-100px;
+
+      animation:move2 12s infinite alternate;
+    }
+
+    @keyframes move1{
+
+      0%{
+        transform:translate(0,0);
+      }
+
+      100%{
+        transform:translate(120px,80px);
+      }
+    }
+
+    @keyframes move2{
+
+      0%{
+        transform:translate(0,0);
+      }
+
+      100%{
+        transform:translate(-120px,-60px);
+      }
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      padding:24px 8%;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      position:fixed;
+      top:0;
+      z-index:1000;
+
+      backdrop-filter:blur(14px);
+
+      background:rgba(2,6,23,0.55);
+
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:700;
+      letter-spacing:1px;
+    }
+
+    .logo span{
+      color:#38bdf8;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:32px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:white;
+      font-size:15px;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#38bdf8;
+    }
+
+    .theme-icon{
+      font-size:22px;
+      cursor:pointer;
+      margin-left:10px;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      padding:120px 8%;
+    }
+
+    .hero-container{
+      width:100%;
+      max-width:1200px;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:80px;
+    }
+
+    /* LEFT */
+
+    .hero-text{
+      flex:1;
+    }
+
+    .hero-text h3{
+      font-size:20px;
+      color:#38bdf8;
+      margin-bottom:20px;
+      font-weight:500;
+    }
+
+    .hero-text h1{
+      font-size:82px;
+      line-height:1;
+      margin-bottom:24px;
+      font-weight:800;
+      letter-spacing:-3px;
+    }
+
+    .hero-text h1 span{
+      color:#38bdf8;
+      text-shadow:0 0 30px rgba(56,189,248,0.35);
+    }
+
+    .hero-text p{
+      max-width:620px;
+      font-size:18px;
+      line-height:1.8;
+      color:#94a3b8;
+      margin-bottom:40px;
+    }
+
+    /* BUTTONS */
+
+    .hero-buttons{
+      display:flex;
+      gap:18px;
+      margin-bottom:40px;
+      flex-wrap:wrap;
+    }
+
+    .hero-buttons a{
+      text-decoration:none;
+      padding:16px 30px;
+      border-radius:14px;
+      font-size:15px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .primary-btn{
+      background:#38bdf8;
+      color:#020617;
+    }
+
+    .primary-btn:hover{
+      transform:translateY(-4px);
+      box-shadow:0 12px 30px rgba(56,189,248,0.25);
+    }
+
+    .secondary-btn{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      color:white;
+      backdrop-filter:blur(10px);
+    }
+
+    .secondary-btn:hover{
+      background:rgba(255,255,255,0.1);
+      transform:translateY(-4px);
+    }
+
+    /* SOCIAL */
+
+    .social-icons{
+      display:flex;
+      gap:18px;
+    }
+
+    .social-icons a{
+      width:52px;
+      height:52px;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      text-decoration:none;
+      color:white;
+      font-size:20px;
+
+      border-radius:14px;
+
+      background:rgba(255,255,255,0.05);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      transition:0.3s;
+      backdrop-filter:blur(10px);
+    }
+
+    .social-icons a:hover{
+      transform:translateY(-5px);
+      background:#38bdf8;
+      color:#020617;
+    }
+
+    /* RIGHT SIDE CARD */
+
+    .hero-card{
+      width:360px;
+      height:420px;
+
+      background:rgba(255,255,255,0.05);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      border-radius:28px;
+
+      backdrop-filter:blur(18px);
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      position:relative;
+
+      overflow:hidden;
+    }
+
+    .hero-card::before{
+      content:'';
+      position:absolute;
+
+      width:220px;
+      height:220px;
+
+      background:#38bdf8;
+      opacity:0.18;
+
+      border-radius:50%;
+
+      filter:blur(80px);
+    }
+
+    .hero-card h2{
+      position:relative;
+      z-index:1;
+
+      font-size:34px;
+      text-align:center;
+      line-height:1.5;
+
+      color:white;
+    }
+
+    .hero-card span{
+      color:#38bdf8;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:1100px){
+
+      .hero-container{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .hero-text p{
+        margin:auto;
+        margin-bottom:40px;
+      }
+
+      .hero-buttons{
+        justify-content:center;
+      }
+
+      .social-icons{
+        justify-content:center;
+      }
+
+      .hero-text h1{
+        font-size:62px;
+      }
+    }
+
+    @media(max-width:700px){
+
+      nav{
+        flex-direction:column;
+        gap:18px;
+      }
+
+      .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero-text h1{
+        font-size:48px;
+      }
+
+      .hero-card{
+        width:100%;
+        max-width:340px;
+        height:350px;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- BACKGROUND -->
+
+  <div class="background">
+
+    <div class="blur1"></div>
+
+    <div class="blur2"></div>
+
+  </div>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">
+
+      Divya <span>G</span>
+
+    </div>
+
+    <div class="nav-links">
+
+      <a href="index.html">Home</a>
+
+      <a href="about.html">About</a>
+
+      <a href="skills.html">Skills</a>
+
+      <a href="projects.html">Projects</a>
+
+      <a href="contact.html">Contact</a>
+
+      <a href="../assets/resume.pdf">Resume</a>
+
+      <div class="theme-icon"
+      onclick="toggleTheme()"
+      id="themeIcon">
+
+        🌙
+
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO SECTION -->
+
+  <section class="hero">
+
+    <div class="hero-container">
+
+      <!-- LEFT -->
+
+      <div class="hero-text">
+
+        <h3>
+          Full Stack Developer
+        </h3>
+
+        <h1>
+
+          Divya <span>Dharshini</span>
+
+        </h1>
+
+        <p>
+
+          Crafting modern, scalable and responsive
+          web experiences with clean UI, powerful backend
+          systems and performance-focused development.
+
+        </p>
+
+        <!-- BUTTONS -->
+
+        <div class="hero-buttons">
+
+          <a href="#" class="primary-btn">
+
+            View Projects
+
+          </a>
+
+          <a href="#" class="secondary-btn">
+
+            Contact Me
+
+          </a>
+
+        </div>
+
+        <!-- SOCIAL -->
+
+        <div class="social-icons">
+
+          <a href="https://github.com/GDivyaDharshini">
+            <i class="fab fa-github"></i>
+          </a>
+
+          <a href="https://www.linkedin.com/in/divyadharshinig007">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+
+          <a href="mailto:divyadharshinig007@gmail.com">
+            <i class="fas fa-envelope"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+
+      <div class="hero-card">
+
+        <h2>
+
+          Building<br>
+
+          <span>Modern Digital</span><br>
+
+          Experiences
+
+        </h2>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <script>
+
+    function toggleTheme(){
+
+      document.body.classList.toggle("light");
+
+      const icon =
+      document.getElementById("themeIcon");
+
+      if(document.body.classList.contains("light")){
+
+        icon.innerHTML = "☀️";
+
+      }
+
+      else{
+
+        icon.innerHTML = "🌙";
+
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>

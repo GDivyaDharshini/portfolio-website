@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Skills | Divya Dharshini</title>
+
+  <!-- GOOGLE FONT -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- ICONS -->
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Inter', sans-serif;
+    }
+
+    body{
+      background:#020617;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      padding:24px 8%;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      position:fixed;
+      top:0;
+      z-index:1000;
+
+      backdrop-filter:blur(14px);
+
+      background:rgba(2,6,23,0.55);
+
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:700;
+      letter-spacing:1px;
+    }
+
+    .logo span{
+      color:#38bdf8;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:32px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:white;
+      font-size:15px;
+      font-weight:500;
+      transition:0.3s;
+      position:relative;
+    }
+
+    .nav-links a::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-6px;
+
+      width:0%;
+      height:2px;
+
+      background:#38bdf8;
+
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#38bdf8;
+    }
+
+    .nav-links a:hover::after{
+      width:100%;
+    }
+
+    /* BACKGROUND */
+
+    .background{
+      position:fixed;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      z-index:-1;
+
+      background:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+      background-size:50px 50px;
+    }
+
+    .blur1{
+      position:absolute;
+
+      width:450px;
+      height:450px;
+
+      background:#0ea5e9;
+
+      opacity:0.14;
+
+      border-radius:50%;
+
+      filter:blur(120px);
+
+      top:-100px;
+      left:-100px;
+    }
+
+    .blur2{
+      position:absolute;
+
+      width:400px;
+      height:400px;
+
+      background:#2563eb;
+
+      opacity:0.12;
+
+      border-radius:50%;
+
+      filter:blur(120px);
+
+      bottom:-100px;
+      right:-100px;
+    }
+
+    /* SKILLS SECTION */
+
+    .skills-section{
+      min-height:100vh;
+      padding:140px 8% 60px;
+    }
+
+    .skills-container{
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .skills-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .skills-title h1{
+      font-size:58px;
+      margin-bottom:16px;
+    }
+
+    .skills-title h1 span{
+      color:#38bdf8;
+    }
+
+    .skills-title p{
+      color:#94a3b8;
+      font-size:17px;
+      max-width:700px;
+      margin:auto;
+      line-height:1.8;
+    }
+
+    /* GRID */
+
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:28px;
+    }
+
+    /* CARD */
+
+    .skill-card{
+
+      background:rgba(255,255,255,0.05);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      border-radius:28px;
+
+      padding:32px;
+
+      backdrop-filter:blur(18px);
+
+      transition:0.3s;
+    }
+
+    .skill-card:hover{
+
+      transform:translateY(-6px);
+
+      border-color:rgba(56,189,248,0.35);
+    }
+
+    .skill-card i{
+
+      width:60px;
+      height:60px;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      background:#38bdf8;
+
+      color:#020617;
+
+      border-radius:16px;
+
+      font-size:24px;
+
+      margin-bottom:24px;
+    }
+
+    .skill-card h2{
+      font-size:24px;
+      margin-bottom:24px;
+    }
+
+    /* TAGS */
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .tag{
+
+      padding:12px 18px;
+
+      background:rgba(255,255,255,0.05);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      border-radius:14px;
+
+      color:#cbd5e1;
+
+      font-size:14px;
+      font-weight:500;
+
+      transition:0.3s;
+    }
+
+    .tag:hover{
+
+      background:#38bdf8;
+
+      color:#020617;
+
+      transform:translateY(-3px);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      nav{
+        flex-direction:column;
+        gap:18px;
+      }
+
+      .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:18px;
+      }
+
+      .skills-title h1{
+        font-size:44px;
+      }
+    }
+
+    @media(max-width:600px){
+
+      .skills-section{
+        padding:170px 5% 50px;
+      }
+
+      .skill-card{
+        padding:26px;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">
+
+      Divya<span>.</span>
+
+    </div>
+
+    <div class="nav-links">
+
+      <a href="index.html">Home</a>
+
+      <a href="about.html">About</a>
+
+      <a href="skills.html">Skills</a>
+
+      <a href="projects.html">Projects</a>
+
+      <a href="contact.html">Contact</a>
+
+      <a href="../assets/resume.pdf">Resume</a>
+
+    </div>
+
+  </nav>
+
+  <!-- BACKGROUND -->
+
+  <div class="background">
+
+    <div class="blur1"></div>
+
+    <div class="blur2"></div>
+
+  </div>
+
+  <!-- SKILLS SECTION -->
+
+  <section class="skills-section">
+
+    <div class="skills-container">
+
+      <!-- TITLE -->
+
+      <div class="skills-title">
+
+        <h1>
+
+          My <span>Skills</span>
+
+        </h1>
+
+        <p>
+
+          Technologies and tools I use for building
+          responsive, scalable and modern web applications.
+
+        </p>
+
+      </div>
+
+      <!-- GRID -->
+
+      <div class="skills-grid">
+
+        <!-- LANGUAGES -->
+
+        <div class="skill-card">
+
+          <i class="fas fa-code"></i>
+
+          <h2>Languages</h2>
+
+          <div class="tags">
+
+            <div class="tag">C</div>
+
+            <div class="tag">C++</div>
+
+            <div class="tag">Python</div>
+
+            <div class="tag">Java</div>
+
+            <div class="tag">SQL</div>
+
+          </div>
+
+        </div>
+
+        <!-- FRONTEND -->
+
+        <div class="skill-card">
+
+          <i class="fas fa-laptop-code"></i>
+
+          <h2>Frontend</h2>
+
+          <div class="tags">
+
+            <div class="tag">HTML</div>
+
+            <div class="tag">CSS</div>
+
+            <div class="tag">JavaScript</div>
+
+          </div>
+
+        </div>
+
+        <!-- BACKEND -->
+
+        <div class="skill-card">
+
+          <i class="fas fa-server"></i>
+
+          <h2>Backend</h2>
+
+          <div class="tags">
+
+            <div class="tag">Node.js</div>
+
+            <div class="tag">Express.js</div>
+
+            <div class="tag">MongoDB</div>
+
+          </div>
+
+        </div>
+
+        <!-- TOOLS -->
+
+        <div class="skill-card">
+
+          <i class="fas fa-toolbox"></i>
+
+          <h2>Tools & Platforms</h2>
+
+          <div class="tags">
+
+            <div class="tag">VS Code</div>
+
+            <div class="tag">LeetCode</div>
+
+            <div class="tag">GitHub</div>
+
+            <div class="tag">Vercel</div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</body>
+
+</html>
